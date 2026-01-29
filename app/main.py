@@ -1,12 +1,13 @@
 from fastapi import FastAPI
 from app.engine.body import analisar_jogo
 
-app = FastAPI(title="Intensímetro API")
+app = FastAPI(title="Intensimetro API")
 
 @app.get("/")
 def health():
     return {"status": "ok"}
 
-@app.post("/scan/match")
-def scan_match(match_id: int):
+# 🔥 ROTA FÁCIL PRA TESTE (GET)
+@app.get("/scan")
+def scan(match_id: int):
     return analisar_jogo(match_id)
